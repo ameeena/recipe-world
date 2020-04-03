@@ -20,7 +20,9 @@ const useStyles = makeStyles(theme => ({
   },
   grid: {},
   button: {
-    marginBottom: 20
+    marginBottom: 20,
+    border: "#90C978",
+    backgroundColor: "#90C978"
   },
   formValue: {
     margin: theme.spacing(1)
@@ -39,7 +41,6 @@ const RecipeForm = ({ recipe, onSave, onChange, saving }) => {
           <Button
             className={classes.button}
             variant="contained"
-            color="primary"
             type="submit"
             disabled={saving}
           >

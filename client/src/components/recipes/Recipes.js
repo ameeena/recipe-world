@@ -26,13 +26,30 @@ const useStyles = makeStyles(theme => ({
   card: {
     width: 320,
     height: 320,
-    margin: 20
+    margin: 20,
+    border: "2px solid #A87496"
   },
   control: {
     padding: theme.spacing(2)
   },
   description: {
     maxHeight: 50
+  },
+  viewButtons: {
+    border: "#90C978",
+    // color: "#586B55",
+    // boxShadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
+    backgroundColor: "#90C978"
+  },
+  editButtons: {
+    border: "#E6A240",
+    // color: "#E6A240"
+    backgroundColor: "#E6A240"
+  },
+  deleteButtons: {
+    border: "#C33C23",
+    backgroundColor: "#C33C23"
+    // color: "#C33C23"
   }
 }));
 
@@ -62,24 +79,24 @@ const Recipes = ({ recipes, onClick }) => {
               </CardContent>
               <CardActions>
                 <Button
+                  className={classes.viewButtons}
                   key={recipe._key}
                   component={Link}
                   to={{
                     pathname: "/recipeDetails/" + recipe._key,
                     state: { recipe: recipe }
                   }}
-                  color="primary"
-                  variant="outlined"
+                  variant="contained"
                 >
                   View
                 </Button>
-                <Button color="primary" variant="outlined">
+                <Button className={classes.editButtons} variant="contained">
                   Edit
                 </Button>
                 <Button
+                  className={classes.deleteButtons}
                   onClick={() => onClick(recipe._key)}
-                  color="secondary"
-                  variant="outlined"
+                  variant="contained"
                 >
                   Delete
                 </Button>
