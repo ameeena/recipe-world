@@ -17,10 +17,14 @@ class ManageRecipes extends React.Component {
   }
 
   handleChange(event) {
+    console.log(event.target.value);
+    console.log(event.target.name);
     const { name, value } = event.target;
     this.setState(state => ({
       recipe: { ...state.recipe, [name]: value }
     }));
+    console.log(event.target.value);
+    console.log(event.target.name);
   }
 
   handleSave(event) {
@@ -43,7 +47,7 @@ class ManageRecipes extends React.Component {
   render() {
     return (
       <RecipeForm
-        recipe={this.props.recipe}
+        recipe={this.state.recipe}
         onSave={this.handleSave}
         onChange={this.handleChange}
         saving={this.state.saving}
@@ -60,6 +64,8 @@ ManageRecipes.propTypes = {
 };
 
 function getRecipeByKey(recipes, key) {
+  console.log(recipes);
+  console.log(key);
   return recipes.find(elem => elem._key === key) || null;
 }
 

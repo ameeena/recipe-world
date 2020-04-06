@@ -94,7 +94,6 @@ const RecipeForm = ({ recipe, onSave, onChange, saving }) => {
               variant="outlined"
               value={recipe.description}
               onChange={onChange}
-              defaultValue="Description"
             />
           </Grid>
 
@@ -127,10 +126,10 @@ const RecipeForm = ({ recipe, onSave, onChange, saving }) => {
               label="Ingredients"
               multiline
               rows="15"
-              defaultValue="Ingredients"
               variant="outlined"
               fullWidth
               onChange={onChange}
+              value={recipe.ingredients}
             />
           </Grid>
           <Grid item xs={4}>
@@ -142,9 +141,9 @@ const RecipeForm = ({ recipe, onSave, onChange, saving }) => {
               label="Steps"
               multiline
               rows="15"
-              defaultValue="Steps"
               variant="outlined"
               onChange={onChange}
+              value={recipe.steps}
             />
           </Grid>
         </Grid>

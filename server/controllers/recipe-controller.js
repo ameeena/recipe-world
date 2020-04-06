@@ -16,7 +16,7 @@ exports.getRecipes = (req, res) => {
 exports.getRecipesById = (req, res) => {};
 
 exports.addRecipe = (req, res) => {
-  // TO DO : Add career values
+  // TO DO : Add  values
   recipesCollection
     .save(req.body)
     .then(response => res.status(200).json(response))

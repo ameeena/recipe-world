@@ -14,8 +14,8 @@ function App() {
       <Switch>
         <Route exact path="/" component={RecipePage} />
         <Route path="/recipes" component={RecipePage} />
-        <Route path="/recipe" component={ManageRecipes} />
         <Route path="/recipe/:_key" component={ManageRecipes} />
+        <Route path="/recipe" component={ManageRecipes} />
         <Route path="/recipeDetails/:_key" component={RecipeDetails} />
         <Route component={PageNotFound} />
       </Switch>

@@ -21,11 +21,11 @@ const useStyles = makeStyles(theme => ({
     alignContent: "space-between"
   },
   media: {
-    height: 100
+    height: 165
   },
   card: {
     width: 320,
-    height: 320,
+    height: 400,
     margin: 20,
     border: "2px solid #A87496"
   },
@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2)
   },
   description: {
-    maxHeight: 50
+    maxHeight: 60
   },
   viewButtons: {
     border: "#90C978",
@@ -55,7 +55,8 @@ const useStyles = makeStyles(theme => ({
 
 const Recipes = ({ recipes, onClick }) => {
   const classes = useStyles();
-
+  console.log(process.env.PUBLIC_URL);
+  const imagePath = process.env.PUBLIC_URL + "images/";
   return (
     <Grid container className={classes.root} spacing={2}>
       {recipes.map(recipe => {
@@ -70,7 +71,8 @@ const Recipes = ({ recipes, onClick }) => {
               <CardMedia
                 component="div"
                 className={classes.media}
-                image={recipe.imageURL}
+                image={imagePath + recipe.imageURL}
+                // image={imagePath}
                 alt="Mountain"
                 title={recipe.name}
               ></CardMedia>
@@ -90,7 +92,13 @@ const Recipes = ({ recipes, onClick }) => {
                 >
                   View
                 </Button>
-                <Button className={classes.editButtons} variant="contained">
+                <Button
+                  component={Link}
+                  key={recipe.id}
+                  to={"/recipe/" + recipe._key}
+                  className={classes.editButtons}
+                  variant="contained"
+                >
                   Edit
                 </Button>
                 <Button
